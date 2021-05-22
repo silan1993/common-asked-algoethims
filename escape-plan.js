@@ -33,21 +33,16 @@ In the third step, we took only 2 steps to reach to the edge of the grid which i
 var steps = []
 let findEscapePlan = grid => {
     let currentRowIndex, currentColIndex
-    let leftsmallestStep = Infinity
-    let rightsmallestStep = Infinity
-    let upsmallestStep = Infinity
-    let downsmallestStep = Infinity
-
     let border = {
     }
     for (let i = 0; i < grid.length; i++){
         border['' + i] = []
         for (let j = 0; j < grid[i].length; j++){
             if ((i == 0 || i == grid.length - 1)) {
-                if(grid[i][j] == 0)
+                if(grid[i][j] == 0 || grid[i][j] == 2)
                     border[''+i].push(j)
             } else if (j == 0 || j == grid[i].length - 1) {
-                if(grid[i][j] == 0)
+                if(grid[i][j] == 0 || grid[i][j] == 2)
                     border['' + i].push(j)
             }
             if (grid[i][j] == 2) {
@@ -166,12 +161,11 @@ let chechBorder = (i, j,border) => {
 }
 
 console.log(findEscapePlan([
-
-[4, 5],
 [1, 1, 1, 0, 1],
-[1, 0, 2, 0, 1],
-[0, 0, 1, 0, 1],
-[1, 0, 1, 1, 0]
+[1, 1, 1, 1, 1],
+[0, 0, 0, 0, 1],
+[0, 0, 1, 2, 1],
+[1, 1, 1, 1, 1]
     
     ]
     ))
