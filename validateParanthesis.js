@@ -19,7 +19,10 @@ let validate = str => {
             }
         
     }
+    if (validArray.length > 0) {
+        valid = false
+    }
     return valid
 }
 
-console.log(validate('[{{})]'))
+console.log(validate('()()((()'))
